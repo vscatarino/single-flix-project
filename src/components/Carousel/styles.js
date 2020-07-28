@@ -22,6 +22,7 @@ export const ExtraLink = styled.a`
   margin-left: 16px;
   text-decoration: none;
   transition: opacity .3s;
+  color: #111;
   &:hover,
   &:focus {
     opacity: .5;
