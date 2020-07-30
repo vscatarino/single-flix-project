@@ -1,32 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
 import TemplateBase from '../../../template/TemplateBase'
 
 function CadastroCategoria() {
- return (
-  <TemplateBase>
-   <h1>Cadastro de Categoria</h1>
+	const [categorias, setCategorias] = useState(['Teste'])
+	const [nomeDaCategoria, setNomeDaCategoria] = useState('Valor Inicial')
+	return (
+		<TemplateBase>
+			<h1>Cadastro de Categoria: {nomeDaCategoria}</h1>
 
-   <form>
+			<form onSubmit={(e) => {
+				e.preventDefault()
+				setCategorias([...categorias, nomeDaCategoria])
+			}}>
 
-    <label>
-     Nome da Categoria:
-          <input
-      type="text"
-     />
-    </label>
+				<label>
+					Nome da Categoria:
+          			<input
+						type="text"
+						value={nomeDaCategoria}
+						onChange={(event) => setNomeDaCategoria(event.target.value)}
+					/>
+				</label>
 
-    <button>
-     Cadastrar
-        </button>
-   </form>
+				<button>
+					Cadastrar
+        		</button>
+			</form>
+			<ul>
+				{categorias.map((categoria, index) => {
+					return (
+						<li key={`${categoria}-${index}`}>
+							{categoria}
+						</li>
+					)
+				})}
+			</ul>
 
-
-   <Link to="/">
-    Ir para home
-      </Link>
-  </TemplateBase>
- )
+			<Link to="/">
+				Ir para home
+			</Link>
+		</TemplateBase>
+	)
 }
 
 export default CadastroCategoria
