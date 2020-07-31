@@ -18,7 +18,9 @@ function CadastroCategoria() {
   };
 
   useEffect(() => {
-    const URL = 'http://localhost:8080/categories';
+    const URL = window.location.hostname.includes('localhost')
+      ? 'http://localhost:8080/categories'
+      : 'https://singleflix.herokuapp.com/categories';
     fetch(URL).then(async (resp) => {
       const categoryList = await resp.json();
       setCategories([...categoryList]);
