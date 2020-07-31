@@ -1,0 +1,16 @@
+{
+ "categories": [
+  {
+  "id":1,
+  "name": "Front-end",
+  "description":"Uma categoria muito louca",
+  "color":"#cbd1ff"
+  },
+   {
+    "id": 2,
+    "name": "Back-end",
+    "description": "Uma categoria para galera hard",
+    "color": "#cbd1ff"
+   }
+ ]
+}

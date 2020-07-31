@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import TemplateBase from '../../../template/TemplateBase';
 import FormField from '../../../components/FormField';
@@ -16,6 +16,14 @@ function CadastroCategoria() {
   const setValue = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
+
+  useEffect(() => {
+    const URL = 'http://localhost:8080/categories';
+    fetch(URL).then(async (resp) => {
+      const categoryList = await resp.json();
+      setCategories([...categoryList]);
+    });
+  }, []);
 
   return (
     <TemplateBase>
@@ -39,6 +47,13 @@ function CadastroCategoria() {
           Cadastrar
         </Button>
       </form>
+      {
+        categories.length === 0 && (
+        <div>
+          Loading...
+        </div>
+        )
+      }
       <ul>
         {categories.map((item, index) => (
           <li key={`${item.name}-${index + 0}`}>
