@@ -16,8 +16,7 @@
   },
   "scripts": {
     "server":"node ./server.js",
-    // "start": "react-scripts start",
-    "start": "yarn run server",
+    "start": "npm run server",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
