@@ -1,74 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'styled-components';
+import { FormFieldWrapper, Label, Input } from './style';
 
-const FormFieldWrapper = styled.div`
-position: relative;
-  textarea {
-    min-height: 150px;
-  }
-  input[type="color"] {
-    padding-left: 56px;
-  }
-`;
-
-const Label = styled.label``;
-Label.Text = styled.span`
- color: var(--grayDark);
-  height: 57px;
-  position: absolute; 
-  top: 0;
-  left: 16px;
-  
-  display: flex;
-  align-items: center;
-  
-  transform-origin: 0% 0%;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 300;
-  
-  transition: .1s ease-in-out;
-`;
-
-const Input = styled.input`
-  background: var(--white);
-  color: var(--grayDark);
-  display: block;
-  width: 100%;
-  height: 57px;
-  font-size: 18px;
-
-  outline: 0;
-  border: 0;
-  border-top: 4px solid transparent;
-  border-bottom: 4px solid var(--primary);
-
-  padding: 16px 16px;
-  margin-bottom: 45px;
-
-  resize: none;
-  border-radius: 4px;
-  transition: border-color .3s;
-
-  &:focus {
-    border-bottom-color: #F79A87;
-  }  
-
-   &:focus:not([type='color']) + span {
-    transform: scale(.6) translateY(-10px);
-  }
-
-    ${({ value }) => {
-    const hasValue = value.length > 0;
-    return hasValue && css`
-        &:not([type='color']) + ${Label.Text} {
-          transform: scale(.6) translateY(-10px);
-        }
-      `;
-  }
-}
-`;
 function FormField({
   label, type, name, value, onChange, suggestions,
 }) {
@@ -95,10 +28,11 @@ function FormField({
           :
         </Label.Text>
         {hasSuggestions && (
-        <datalist id={`suggestionFor_${fieldId}`}>
+        <datalist id={`suggestionFor_${fieldId}_${value}`}>
           {
-            suggestions.map((suggestion) => (
-              <option key={`suggestionFor_${fieldId}_option`} value={suggestion}>
+            suggestions.map((suggestion, index) => (
+              // eslint-disable-next-line react/no-array-index-key
+              <option key={`suggestionFor_${index}_${fieldId}_option`} value={suggestion}>
                 {suggestion}
               </option>
             ))

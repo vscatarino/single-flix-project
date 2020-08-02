@@ -6,7 +6,8 @@ import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
 import useForm from '../../../hooks/useForm';
 import caterogiesRepository from '../../../repositories/categories';
-import LINK from '../style';
+import { LINK, Container, Text } from '../style';
+import Loading from '../../../components/Loading';
 
 const H1 = styled.h1`
 color:var(--grayDark);
@@ -25,6 +26,7 @@ padding-bottom: 4px;
 const UL = styled.ul`
 padding: 0;
 `;
+
 const CadastroCategoria = () => {
   const category = {
     title: '',
@@ -32,8 +34,11 @@ const CadastroCategoria = () => {
     color: '#000000',
   };
 
+  const fetching = false;
+
   const { values, setValue, clearForm } = useForm(category);
   const [categories, setCategories] = useState([]);
+  const [isFetching, setIsFetching] = useState(fetching);
 
   useEffect(() => {
     caterogiesRepository.getAll().then((resp) => {
@@ -50,28 +55,35 @@ const CadastroCategoria = () => {
 
       <form onSubmit={(e) => {
         e.preventDefault();
+        setIsFetching(true);
         const newCategory = { title: values.name, description: values.description, color: values.color };
         caterogiesRepository.create(newCategory).then((categoryCreated) => {
           setCategories([...categories, categoryCreated]);
           clearForm();
-        });
+          setIsFetching(false);
+        }).catch((err) => setIsFetching(true));
       }}
       >
         <FormField label="Título da Categoria" type="text" name="name" value={values.name} onChange={setValue} />
         <FormField label="Descrição" type="textarea" name="description" value={values.description} onChange={setValue} />
         <FormField label="Cor" type="color" name="color" value={values.color} onChange={setValue} />
-
-        <Button>
-          Cadastrar
-        </Button>
+        {
+          isFetching && (
+            <Container>
+              <Loading />
+              <Text>cadastrando categoria...</Text>
+            </Container>
+          )
+        }
+        {
+          !isFetching && (
+            <Button>
+              Cadastrar
+            </Button>
+          )
+        }
       </form>
-      {
-        categories.length === 0 && (
-        <div>
-          Loading...
-        </div>
-        )
-      }
+
       <UL>
         {categories.length >= 0 && categories.map((item, index) => (
           <LI key={`${item.name}-${index + 0}`}>

@@ -25,7 +25,7 @@
       "description": "Aprenda a utilizar melhor o seu dinheiro",
       "color": "#2cc9a2",
       "id": 3
-    }
+    }    
   ],
   "videos": [
     {
@@ -33,13 +33,7 @@
       "categoryId": 1,
       "title": "Arroz soltinho",
       "url": "https://www.youtube.com/watch?v=ClB0hyNcy3o"
-    },
-    {
-      "id": 188,
-      "categoryId": 3,
-      "title": "Arroz soltinho",
-      "url": "https://www.youtube.com/watch?v=ClB0hyNcy3o"
-    },
+    },   
     {
       "id": 2,
       "categoryId": 1,
@@ -99,20 +93,6 @@
       "categoryId": 2,
       "title": "Organize sua despensa",
       "url": "https://www.youtube.com/watch?v=6BcKbCn9t_o"
-    },
-    {
-      "title": "Titulo Padrão",
-      "url": "https://www.youtube.com/watch?v=nDxp3YEpR1E&list=PLbcp5RKTX5wNF34qxISyWY6kignmhBQRT",
-      "category": "Organização",
-      "categoryId": 2,
-      "id": 12
-    },
-    {
-      "title": "Titulo Padrão",
-      "url": "https://www.youtube.com/watch?v=nDxp3YEpR1E&list=PLbcp5RKTX5wNF34qxISyWY6kignmhBQRT",
-      "category": "Cozinha",
-      "categoryId": 1,
-      "id": 13
-    }
+    }    
   ]
 }

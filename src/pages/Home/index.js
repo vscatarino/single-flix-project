@@ -30,7 +30,7 @@ function Home() {
       {categories.map((category, index) => {
         if (index === 0) {
           return (
-            <>
+            <React.Fragment key={`#${category.id}_${category.title}-banner`}>
               <BannerMain
                 videoTitle={categories[0].videos[0].title || ''}
                 url={categories[0].videos[0].url || ''}
@@ -41,12 +41,13 @@ function Home() {
                 ignoreFirstVideo
                 category={categories[0]}
               />
-            </>
+            </React.Fragment>
           );
         }
 
         return (
           <Carousel
+            key={`#${category.id}_${category.title}`}
             category={category}
           />
         );
