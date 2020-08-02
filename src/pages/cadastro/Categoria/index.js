@@ -4,6 +4,7 @@ import TemplateBase from '../../../template/TemplateBase';
 import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
 import useForm from '../../../hooks/useForm';
+import caterogiesRepository from '../../../repositories/categories';
 
 const CadastroCategoria = () => {
   const category = {
@@ -16,12 +17,8 @@ const CadastroCategoria = () => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    const URL = window.location.hostname.includes('localhost')
-      ? 'http://localhost:8080/categories'
-      : 'https://singleflix.herokuapp.com/categories';
-    fetch(URL).then(async (resp) => {
-      const categoryList = await resp.json();
-      setCategories([...categoryList]);
+    caterogiesRepository.getAll().then((resp) => {
+      setCategories([...resp]);
     });
   }, []);
 
@@ -34,9 +31,11 @@ const CadastroCategoria = () => {
 
       <form onSubmit={(e) => {
         e.preventDefault();
-        setCategories([...categories,
-          { name: values.name, description: values.description, color: values.color }]);
-        clearForm();
+        const newCategory = { title: values.name, description: values.description, color: values.color };
+        caterogiesRepository.create(newCategory).then((categoryCreated) => {
+          setCategories([...categories, categoryCreated]);
+          clearForm();
+        });
       }}
       >
         <FormField label="Título da Categoria" type="text" name="name" value={values.name} onChange={setValue} />
@@ -55,9 +54,9 @@ const CadastroCategoria = () => {
         )
       }
       <ul>
-        {categories.map((item, index) => (
+        {categories.length >= 0 && categories.map((item, index) => (
           <li key={`${item.name}-${index + 0}`}>
-            {item.name}
+            {item.title}
           </li>
         ))}
       </ul>

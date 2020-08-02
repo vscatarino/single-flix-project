@@ -19,12 +19,24 @@
         "text": "Dicas para se organizar",
         "url": "https://www.linkedin.com/in/vin%C3%ADcius-catarino-188244b1/"
       }
+    },
+    {
+      "title": "Financeiro",
+      "description": "Aprenda a utilizar melhor o seu dinheiro",
+      "color": "#2cc9a2",
+      "id": 3
     }
   ],
   "videos": [
     {
       "id": 1,
       "categoryId": 1,
+      "title": "Arroz soltinho",
+      "url": "https://www.youtube.com/watch?v=ClB0hyNcy3o"
+    },
+    {
+      "id": 188,
+      "categoryId": 3,
       "title": "Arroz soltinho",
       "url": "https://www.youtube.com/watch?v=ClB0hyNcy3o"
     },
