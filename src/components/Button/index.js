@@ -1,7 +1,6 @@
-import styled from "styled-components"
+import styled, { css } from 'styled-components';
 
 const Button = styled.button`
-  background: var(--primary);
   color: var(--white);
   border: 1px solid var(--white);
   box-sizing: border-box;
@@ -19,6 +18,13 @@ const Button = styled.button`
  &:focus {
    opacity: .5;
   }
+  ${({ background }) => {
+    if (background) {
+      return css`background: ${(props) => props.background};`;
+    }
+
+    return css`background: var(--primary);`;
+  }}
  `;
 
- export default Button
+export default Button;

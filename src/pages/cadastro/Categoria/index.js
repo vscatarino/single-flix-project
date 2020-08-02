@@ -13,19 +13,6 @@ const H1 = styled.h1`
 color:var(--grayDark);
 `;
 
-const LI = styled.li`
-color: #F15E5E;
-list-style-type: none;
-padding-bottom: 4px;
-&:hover{
-  color:var(--primary);
-  cursor:pointer;
-}
-`;
-
-const UL = styled.ul`
-padding: 0;
-`;
 const LinkCustomizedConatiner = styled.div`
 display: flex;
 
@@ -86,14 +73,6 @@ const CadastroCategoria = () => {
           )
         }
       </form>
-
-      <UL>
-        {categories.length >= 0 && categories.map((item, index) => (
-          <LI key={`${item.name}-${index + 0}`}>
-            {item.title}
-          </LI>
-        ))}
-      </UL>
 
       <LinkCustomizedConatiner>
         <LinkCustomized as={Link} to="/">

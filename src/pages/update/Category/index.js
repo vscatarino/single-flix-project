@@ -14,8 +14,8 @@ color:var(--grayDark);`;
 
 const Category = () => {
   const category = {
-    title: 'zzz',
-    description: 'zv',
+    title: '',
+    description: '',
     color: '#000000',
   };
 
@@ -41,6 +41,15 @@ const Category = () => {
       setCategories([...resp]);
     });
   }, []);
+
+  const deleteCategory = () => {
+    console.log('vou exluir: ', categoryToEdit);
+    caterogiesRepository.deleteCategory(categoryToEdit).then((updatedCategories) => {
+      setCategories([...categories, updatedCategories]);
+      clearForm();
+      setIsFetching(false);
+    }).catch((err) => setIsFetching(true));
+  };
   return (
     <TemplateBase>
       {categories.length === 0 && (
@@ -61,12 +70,9 @@ const Category = () => {
       <form onSubmit={(e) => {
         e.preventDefault();
         setIsFetching(true);
-     const editedCategory = { title: values.title, description: values.description, color: values.color };
-     console.log(categoryToEdit);
-     console.log(editedCategory);
-     const categoryToSend = { ...categoryToEdit, ...editedCategory }
-     console.log(categoryToSend)
-     caterogiesRepository.update(categoryToSend).then((updatedCategories) => {
+        const editedCategory = { title: values.title, description: values.description, color: values.color };
+        const categoryToSend = { ...categoryToEdit, ...editedCategory };
+        caterogiesRepository.update(categoryToSend).then((updatedCategories) => {
           setCategories([...categories, updatedCategories]);
           clearForm();
           setIsFetching(false);
@@ -86,9 +92,15 @@ const Category = () => {
      }
         {
       !isFetching && (
-      <Button>
-        Editar
-      </Button>
+      <div>
+        <Button type="button" onClick={() => deleteCategory()} background="#F15E5E">
+          Excluir Categoria
+        </Button>
+        <Button>
+          Editar
+        </Button>
+      </div>
+
       )
      }
       </form>
