@@ -4,13 +4,9 @@ import { Link } from 'react-router-dom';
 import TemplateBase from '../../template/TemplateBase';
 
 export const Container = styled.div`
- height: 90vh;
+    height: 90vh;
     padding: 0;
     margin: 0;
-    /* display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex; */
     display: flex;
     align-items: center;
     justify-content: center;

@@ -1,8 +1,10 @@
 /* eslint-disable no-console */
 import React, { useState, useEffect } from 'react';
+import { Container, Text } from './style';
 import BannerMain from '../../components/BannerMain';
 import Carousel from '../../components/Carousel';
 import TemplateBase from '../../template/TemplateBase';
+import Loading from '../../components/Loading';
 import categoriesRepository from '../../repositories/categories';
 
 function Home() {
@@ -18,7 +20,12 @@ function Home() {
   }, []);
   return (
     <TemplateBase paddingAll={0}>
-      {categories.length === 0 && <div>Loading...</div>}
+      {categories.length === 0 && (
+      <Container>
+        <Loading width={200} height={200}>Loading... </Loading>
+        <Text>Loading...</Text>
+      </Container>
+      )}
 
       {categories.map((category, index) => {
         if (index === 0) {
