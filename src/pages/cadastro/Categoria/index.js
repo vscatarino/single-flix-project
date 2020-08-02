@@ -39,7 +39,7 @@ const CadastroCategoria = () => {
         clearForm();
       }}
       >
-        <FormField label="Nome da Categoria" type="text" name="name" value={values.name} onChange={setValue} />
+        <FormField label="Título da Categoria" type="text" name="name" value={values.name} onChange={setValue} />
         <FormField label="Descrição" type="textarea" name="description" value={values.description} onChange={setValue} />
         <FormField label="Cor" type="color" name="color" value={values.color} onChange={setValue} />
 
