@@ -1,7 +1,7 @@
 import React from 'react';
+import styled, { css } from 'styled-components';
 import Menu from '../../components/Menu';
 import Footer from '../../components/Footer';
-import styled from 'styled-components';
 
 const Main = styled.main`
    background-color: #f5f5f5;
@@ -10,18 +10,20 @@ const Main = styled.main`
    padding-top: 50px;
    padding-left: 5%;
    padding-right: 5%;
-`
+   ${({ paddingAll }) => css`
+   padding: ${paddingAll}`}
+`;
 
-function TemplateBase({children}) {
- return (
-  <React.Fragment>
-   <Menu />
-   <Main>
-    {children}
-    </Main>
-   <Footer />
-  </React.Fragment>
- )
+function TemplateBase({ children, paddingAll }) {
+  return (
+    <>
+      <Menu />
+      <Main paddingAll={paddingAll}>
+        {children}
+      </Main>
+      <Footer />
+    </>
+  );
 }
 
 export default TemplateBase;

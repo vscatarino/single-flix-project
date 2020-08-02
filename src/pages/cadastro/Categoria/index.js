@@ -3,19 +3,17 @@ import { Link } from 'react-router-dom';
 import TemplateBase from '../../../template/TemplateBase';
 import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
+import useForm from '../../../hooks/useForm';
 
-function CadastroCategoria() {
+const CadastroCategoria = () => {
   const category = {
-    name: '',
+    title: '',
     description: '',
     color: '#000000',
   };
-  const [values, setValues] = useState(category);
-  const [categories, setCategories] = useState([]);
 
-  const setValue = (e) => {
-    setValues({ ...values, [e.target.name]: e.target.value });
-  };
+  const { values, setValue, clearForm } = useForm(category);
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     const URL = window.location.hostname.includes('localhost')
@@ -38,7 +36,7 @@ function CadastroCategoria() {
         e.preventDefault();
         setCategories([...categories,
           { name: values.name, description: values.description, color: values.color }]);
-        setValues(category);
+        clearForm();
       }}
       >
         <FormField label="Nome da Categoria" type="text" name="name" value={values.name} onChange={setValue} />
@@ -69,6 +67,6 @@ function CadastroCategoria() {
       </Link>
     </TemplateBase>
   );
-}
+};
 
 export default CadastroCategoria;

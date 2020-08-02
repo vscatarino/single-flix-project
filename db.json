@@ -2,15 +2,91 @@
  "categories": [
   {
   "id":1,
-  "name": "Front-end",
-  "description":"Uma categoria muito louca",
-  "color":"#cbd1ff"
+  "title": "Cozinha",
+  "description":"Receitas de cozinha básica",
+  "color":"#F79A87",
+  "link-extra":{
+    "text":"Catarino Front End",
+    "url": "https://www.linkedin.com/in/vin%C3%ADcius-catarino-188244b1/"
+  }
   },
    {
     "id": 2,
-    "name": "Back-end",
-    "description": "Uma categoria para galera hard",
-    "color": "#cbd1ff"
+    "title": "Organização",
+    "description": "Dicas para se organizar",
+    "color": "#595757",
+    "link-extra": {
+      "text": "Dicas para se organizar",
+      "url": "https://www.linkedin.com/in/vin%C3%ADcius-catarino-188244b1/"
+    }
    }
+ ],
+ "videos":[
+   {
+    "id":1, 
+    "categoryId":1, 
+    "title":"Arroz soltinho", 
+    "url":"https://www.youtube.com/watch?v=ClB0hyNcy3o"
+  },
+  {
+    "id": 2,
+    "categoryId": 1,
+    "title": "Fricassê de frango",
+    "url": "https://www.youtube.com/watch?v=3t7lsSE1kY0&list=PLpUs89aC5iYSfn0PGWLbyKrR5g-NLg3WY&index=30"
+  },
+  {
+    "id": 3,
+    "categoryId": 1,
+    "title": "Mousse de Chocolate: surpreenda seu crush",
+    "url": "https://www.youtube.com/watch?v=uFFJ0k0t77s&t=311s"
+  },
+  {
+    "id": 4,
+    "categoryId": 1,
+    "title": "Você tem que provar essa maionese",
+    "url": "https: //www.youtube.com/watch?v=s1ja3lQZrIM"
+  },
+  {
+    "id": 5,
+    "categoryId": 1,
+    "title": "Uma sobremesa saborosoa e super simples de fazer",
+    "url": "https: //www.youtube.com/watch?v=iWGuO1rj55s&t=28s"
+  },
+  {
+    "id": 6,
+    "categoryId": 1,
+    "title": "Um macarrão simples",
+    "url": "https: //www.youtube.com/watch?v=qsghxhVBzNU&t=446s"
+  },
+  {
+    "id": 7,
+    "categoryId": 1,
+    "title": "É super simples preparar um peixe",
+    "url": "https://www.youtube.com/watch?v=qv7UeDUlDcA&list=PLpUs89aC5iYSfn0PGWLbyKrR5g-NLg3WY&index=37"
+  },
+  {
+    "id": 8,
+    "categoryId": 1,
+    "title": "Existe a forma correta de cozinhar um ovo",
+    "url": "https://www.youtube.com/watch?v=GD2n2JVOLMA&list=PLpUs89aC5iYSfn0PGWLbyKrR5g-NLg3WY&index=8"
+  },
+  {
+    "id": 9,
+    "categoryId": 2,
+    "title": "Tenha o hábito de ser organizado",
+    "url": "https://www.youtube.com/watch?v=-raQ3y0WyHI"
+  },
+  {
+    "id": 10,
+    "categoryId": 2,
+    "title": "Olha quanto espaço vai aparecer no seu guarda-roupas",
+    "url": "https://www.youtube.com/watch?v=urAuB-ibk54"
+  },
+  {
+    "id": 11,
+    "categoryId": 2,
+    "title": "Organize sua despensa",
+    "url": "https://www.youtube.com/watch?v=6BcKbCn9t_o"
+  }
  ]
 }
