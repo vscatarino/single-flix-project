@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import CadastroVideo from './pages/cadastro/Video';
 import CadastroCategoria from './pages/cadastro/Categoria';
 import Pagina404 from './pages/Page404';
+import UpdateCategory from './pages/update/Category';
 
 // const Pagina404 = () => (<div>Página 404</div>)
 
@@ -15,6 +16,7 @@ ReactDOM.render(
       <Route path="/" component={Home} exact />
       <Route path="/cadastro/video" component={CadastroVideo} exact />
       <Route path="/cadastro/categoria" component={CadastroCategoria} exact />
+      <Route path="/editar/categoria" component={UpdateCategory} exact />
       <Route component={Pagina404} />
       {/* <CadastroVideo />
       <CadastroCategoria /> */}

@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import React, { useState, useEffect } from 'react';
-import { Container, Text } from './style';
+import { Container, Text } from '../../components/Loading/style';
 import BannerMain from '../../components/BannerMain';
 import Carousel from '../../components/Carousel';
 import TemplateBase from '../../template/TemplateBase';

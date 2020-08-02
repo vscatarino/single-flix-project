@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 
-export const LINK = styled.a`
+export const LinkCustomized = styled.a`
+display:block;
 text-decoration: none;
 color: #F15E5E;
+padding-right: 10px;
 &:hover{
   color:var(--primary);
   cursor:pointer;

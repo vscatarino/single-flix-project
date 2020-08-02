@@ -7,7 +7,7 @@ import Button from '../../../components/Button';
 import useForm from '../../../hooks/useForm';
 import videosRepository from '../../../repositories/videos';
 import categoriesRepository from '../../../repositories/categories';
-import { LINK, Container, Text } from '../style';
+import { LinkCustomized, Container, Text } from '../style';
 import Loading from '../../../components/Loading';
 
 const H1 = styled.h1`
@@ -74,9 +74,9 @@ function CadastroVideo() {
         }
       </form>
 
-      <LINK as={Link} to="/cadastro/categoria">
+      <LinkCustomized as={Link} to="/cadastro/categoria">
         Cadastrar Categoria
-      </LINK>
+      </LinkCustomized>
     </TemplateBase>
   );
 }

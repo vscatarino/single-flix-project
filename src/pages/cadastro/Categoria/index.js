@@ -6,7 +6,7 @@ import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
 import useForm from '../../../hooks/useForm';
 import caterogiesRepository from '../../../repositories/categories';
-import { LINK, Container, Text } from '../style';
+import { LinkCustomized, Container, Text } from '../style';
 import Loading from '../../../components/Loading';
 
 const H1 = styled.h1`
@@ -26,7 +26,10 @@ padding-bottom: 4px;
 const UL = styled.ul`
 padding: 0;
 `;
+const LinkCustomizedConatiner = styled.div`
+display: flex;
 
+`;
 const CadastroCategoria = () => {
   const category = {
     title: '',
@@ -92,9 +95,15 @@ const CadastroCategoria = () => {
         ))}
       </UL>
 
-      <LINK as={Link} to="/">
-        Ir para home
-      </LINK>
+      <LinkCustomizedConatiner>
+        <LinkCustomized as={Link} to="/">
+          Ir para home
+        </LinkCustomized>
+
+        <LinkCustomized as={Link} to="/editar/categoria">
+          Editar categoria
+        </LinkCustomized>
+      </LinkCustomizedConatiner>
     </TemplateBase>
   );
 };
