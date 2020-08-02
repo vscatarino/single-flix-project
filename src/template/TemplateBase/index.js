@@ -4,8 +4,8 @@ import Menu from '../../components/Menu';
 import Footer from '../../components/Footer';
 
 const Main = styled.main`
-   background-color: #f5f5f5;
-   color: #111;
+   background-color:var(--grayLight);
+   color: var(--black);
    flex: 1;
    padding-top: 50px;
    padding-left: 5%;

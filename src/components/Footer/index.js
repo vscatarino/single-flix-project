@@ -1,5 +1,5 @@
 import React from 'react';
-import { FooterBase } from './styles';
+import FooterBase from './styles';
 import Logo from '../../assets/img/Logo.png'
 import '../Menu/Menu.css'
 

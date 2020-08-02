@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import styled from 'styled-components';
 import TemplateBase from '../../../template/TemplateBase';
 import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
 import useForm from '../../../hooks/useForm';
 import videosRepository from '../../../repositories/videos';
 import categoriesRepository from '../../../repositories/categories';
+import LINK from '../style';
+
+const H1 = styled.h1`
+color:var(--grayDark);
+`;
 
 function CadastroVideo() {
   const history = useHistory();
@@ -24,7 +30,7 @@ function CadastroVideo() {
   }, []);
   return (
     <TemplateBase>
-      <h1>Cadastro de Vídeo</h1>
+      <H1>Cadastro de Vídeo</H1>
       <form onSubmit={(event) => {
         event.preventDefault();
         const categoryFound = categories.find((category) => category.title === values.category);
@@ -50,9 +56,10 @@ function CadastroVideo() {
           Cadastrar
         </Button>
       </form>
-      <Link to="/cadastro/categoria">
+
+      <LINK as={Link} to="/cadastro/categoria">
         Cadastrar Categoria
-      </Link>
+      </LINK>
     </TemplateBase>
   );
 }

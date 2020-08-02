@@ -23,8 +23,8 @@
   padding-left: 5%;
   padding-right: 5%;
 
-  background: var(--black);
-  border-bottom: 2px solid var(--primary);
+  background: var(--primary);
+  border-bottom: 2px solid var(--grayDark);
 }
 body {
   --bodyPaddingTop: 94px;
@@ -47,7 +47,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: var(--primary);
+    background: var(--grayDark);
     border-radius: 0;
     border: 0;
     text-align: center;
