@@ -6,12 +6,17 @@ const useForm = (initialValue) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
 
+  const setAllValues = (newValue) => {
+    setValues(newValue);
+  } 
+
   const clearForm = () => setValues(initialValue);
 
   return {
     values,
     setValue,
     clearForm,
+    setAllValues,
   };
 };
 

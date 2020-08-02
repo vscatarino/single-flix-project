@@ -21,11 +21,11 @@
       }
     },
     {
-      "title": "Financeiro",
+      "title": "FinanceiroAAA",
       "description": "Aprenda a utilizar melhor o seu dinheiro",
       "color": "#2cc9a2",
       "id": 3
-    }    
+    }
   ],
   "videos": [
     {
@@ -33,7 +33,7 @@
       "categoryId": 1,
       "title": "Arroz soltinho",
       "url": "https://www.youtube.com/watch?v=ClB0hyNcy3o"
-    },   
+    },
     {
       "id": 2,
       "categoryId": 1,
@@ -93,6 +93,6 @@
       "categoryId": 2,
       "title": "Organize sua despensa",
       "url": "https://www.youtube.com/watch?v=6BcKbCn9t_o"
-    }    
+    }
   ]
 }

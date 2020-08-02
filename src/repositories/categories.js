@@ -31,8 +31,22 @@ const create = (category) => fetch(`${URL_CATEGORIES}`, {
   throw new Error('Não foi possível cadastrar a categoria');
 });
 
+const update = (category) => fetch(`${URL_CATEGORIES}/${category.id}`, {
+  method: 'PUT',
+  headers: {
+    'Content-type': 'application/json',
+  },
+  body: JSON.stringify(category),
+}).then(async (resp) => {
+  if (resp.ok) {
+    const categories = await resp.json();
+    return categories;
+  }
+  throw new Error('Não foi possível cadastrar a categoria');
+});
 export default {
   getAllCategoriesWithVideos,
   getAll,
   create,
+  update,
 };
