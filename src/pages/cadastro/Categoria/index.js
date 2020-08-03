@@ -36,6 +36,17 @@ const CadastroCategoria = () => {
     });
   }, []);
 
+  const createCategory = (event) => {
+    event.preventDefault();
+    setIsFetching(true);
+    const newCategory = { title: values.name, description: values.description, color: values.color };
+    caterogiesRepository.create(newCategory).then((categoryCreated) => {
+      setCategories([...categories, categoryCreated]);
+      clearForm();
+      setIsFetching(false);
+    }).catch((err) => setIsFetching(true));
+  };
+
   return (
     <TemplateBase>
       <H1>
@@ -43,19 +54,9 @@ const CadastroCategoria = () => {
         {values.name}
       </H1>
 
-      <form onSubmit={(e) => {
-        e.preventDefault();
-        setIsFetching(true);
-        const newCategory = { title: values.name, description: values.description, color: values.color };
-        caterogiesRepository.create(newCategory).then((categoryCreated) => {
-          setCategories([...categories, categoryCreated]);
-          clearForm();
-          setIsFetching(false);
-        }).catch((err) => setIsFetching(true));
-      }}
-      >
-        <FormField label="Título da Categoria" type="text" name="name" value={values.name} onChange={setValue} />
-        <FormField label="Descrição" type="textarea" name="description" value={values.description} onChange={setValue} />
+      <form onSubmit={(event) => createCategory(event)}>
+        <FormField label="Título da Categoria" type="text" name="name" value={values.name} onChange={setValue} required/>
+        <FormField label="Descrição" type="textarea" name="description" value={values.description} onChange={setValue} required/>
         <FormField label="Cor" type="color" name="color" value={values.color} onChange={setValue} />
         {
           isFetching && (

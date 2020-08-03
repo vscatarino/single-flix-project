@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { FormFieldWrapper, Label, Input } from './style';
 
 function FormField({
-  label, type, name, value, onChange, suggestions,
+  label, type, name, value, onChange, suggestions, required,
 }) {
   const fieldId = `id_${name}`;
   const isTypeTextArea = type === 'textarea';
@@ -14,6 +14,7 @@ function FormField({
     <FormFieldWrapper>
       <Label>
         <Input
+          required={required}
           as={tag}
           type={type}
           value={value}
@@ -28,11 +29,11 @@ function FormField({
           :
         </Label.Text>
         {hasSuggestions && (
-        <datalist id={`suggestionFor_${fieldId}_${value}`}>
+        <datalist id={`suggestionFor_${fieldId}`}>
           {
             suggestions.map((suggestion, index) => (
               // eslint-disable-next-line react/no-array-index-key
-              <option key={`suggestionFor_${index}_${fieldId}_option`} value={suggestion}>
+              <option key={`suggestionFor_${fieldId}_option`} value={suggestion}>
                 {suggestion}
               </option>
             ))
@@ -48,6 +49,7 @@ FormField.defaultProps = {
   type: 'text',
   value: '',
   suggestions: [],
+  required: false,
 };
 
 FormField.propTypes = {
@@ -57,6 +59,7 @@ FormField.propTypes = {
   value: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   suggestions: PropTypes.arrayOf(PropTypes.string),
+  required: PropTypes.bool,
 };
 
 export default FormField;

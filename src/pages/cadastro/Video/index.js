@@ -37,8 +37,24 @@ function CadastroVideo() {
       <H1>Cadastro de Vídeo</H1>
       <form onSubmit={(event) => {
         event.preventDefault();
+        const videoUrl = values.url;
+        const urlRegex = /^(https?\:\/\/)?((www\.)?youtube\.com|youtu\.?be)\/.+$/;
+        const isUrlValid = urlRegex.test(videoUrl);
+
         setIsFetching(true);
+        if (!isUrlValid) {
+          console.log('A url fornecida é inválida');
+          setIsFetching(false);
+          return
+        }
         const categoryFound = categories.find((category) => category.title === values.category);
+        console.log(categoryFound);
+
+        if (!categoryFound || (categoryFound && !categoryFound.id)) {
+          console.log('É necessário fornecer uma  categoria existente.');
+          setIsFetching(false);
+          return
+        }
 
         videosRepository.create({
           title: values.title,
@@ -50,12 +66,12 @@ function CadastroVideo() {
           // eslint-disable-next-line no-console
           console.log('Cadastro com sucesso!');
           history.push('/');
-        }).catch(err => console.log('ocorreu um erro'));
+        }).catch((err) => console.log('ocorreu um erro'));
       }}
       >
-        <FormField label="Título do Vídeo" name="title" value={values.title} onChange={setValue} />
-        <FormField label="URL do Vídeo" name="url" value={values.url} onChange={setValue} />
-        <FormField label="Categoria" name="category" value={values.category} onChange={setValue} suggestions={categoryTitle} />
+        <FormField label="Título do Vídeo" name="title" value={values.title} onChange={setValue} required />
+        <FormField label="URL do Vídeo" name="url" value={values.url} onChange={setValue} required />
+        <FormField label="Categoria" name="category" value={values.category} onChange={setValue} suggestions={categoryTitle} required />
 
         {
           isFetching && (

@@ -19,6 +19,12 @@
         "text": "Dicas para se organizar",
         "url": "https://www.linkedin.com/in/vin%C3%ADcius-catarino-188244b1/"
       }
+    },
+    {
+      "title": "Financeiro",
+      "description": "Aprenda a utilizar bem o seu dinheiro",
+      "color": "#f15e5e",
+      "id": 3
     }
   ],
   "videos": [
@@ -87,6 +93,62 @@
       "categoryId": 2,
       "title": "Organize sua despensa",
       "url": "https://www.youtube.com/watch?v=6BcKbCn9t_o"
+    },
+    {
+      "title": "Quando organizar o seu dia?",
+      "url": "https://www.youtube.com/watch?v=bTTY4D4sgKM",
+      "category": "Organização",
+      "categoryId": 2,
+      "id": 12
+    },
+    {
+      "title": "Aproveite melhor o seu dia",
+      "url": "https://www.youtube.com/watch?v=EjQAbBmYdO0",
+      "category": "Organização",
+      "categoryId": 2,
+      "id": 13
+    },
+    {
+      "title": "Administração do tempo e estratégia",
+      "url": "https://www.youtube.com/watch?v=aQmSLEMBHOc",
+      "category": "Organização",
+      "categoryId": 2,
+      "id": 14
+    },
+    {
+      "title": "Quanto custa sair de casa?",
+      "url": "https://www.youtube.com/watch?v=rN0xTDaWT5Q",
+      "category": "Financeiro",
+      "categoryId": 3,
+      "id": 15
+    },
+    {
+      "title": "Alugar x Financiar",
+      "url": "https://www.youtube.com/watch?v=eAFOnmmW7XM",
+      "category": "Financeiro",
+      "categoryId": 3,
+      "id": 16
+    },
+    {
+      "title": "10 dias de comida por R$100",
+      "url": "https://www.youtube.com/watch?v=8LEzCm-In4k",
+      "category": "Financeiro",
+      "categoryId": 3,
+      "id": 17
+    },
+    {
+      "title": "Organização Financeira",
+      "url": "https://www.youtube.com/watch?v=zTN1Gs6Uih8",
+      "category": "Financeiro",
+      "categoryId": 3,
+      "id": 18
+    },
+    {
+      "title": "Não pague isso!",
+      "url": "https://www.youtube.com/watch?v=JUo2wMjBJkE",
+      "category": "Financeiro",
+      "categoryId": 3,
+      "id": 19
     }
   ]
 }
