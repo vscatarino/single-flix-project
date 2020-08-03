@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
- const VideoCardContainer = styled.a`
+const VideoCardContainer = styled.a`
   border: 2px solid;
   border-radius: 4px;
   text-decoration: none;
@@ -19,13 +19,22 @@ import styled from 'styled-components';
   align-items: flex-end;
   padding: 16px;
 
-  transition: opacity .3s;
+  /* transition: opacity .3s;
   &:hover,
-  &:focus {
+    &:focus {
+    opacity:0.5
+    }
+  } */
+
+   @media (min-width: 800px) {
+    &:hover,
+    &:focus {
     z-index: 1;
     transform: scale(1.7, 1.2);
     transition: transform 0.5s ease-in-out;
+    }
   }
+  
   
   &:not(:first-child) {
     margin-left: 20px;
